@@ -1,0 +1,22 @@
+{
+	"name": "ilg-cortex-m-gcc",
+	"version": "0.0.1",
+	"description": "Base build target for ARM GCC toolchain",
+	"licenses": [
+		{
+			"url": "https://spdx.org/licenses/Apache-2.0",
+			"type": "Apache-2.0"
+		}
+	],
+
+	"keywords": [
+		"gcc"
+	],
+
+	"similarTo": [
+		"arm",
+		"gcc"
+	],
+
+	"toolchain": "CMake/toolchain.cmake"
+}

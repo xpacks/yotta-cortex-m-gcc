@@ -63,14 +63,14 @@ set(YOTTA_POSTPROCESS_COMMAND "\"${ARM_NONE_EABI_OBJCOPY}\" -O binary YOTTA_CURR
 
 
 # set default compilation flags
-set(_C_FAMILY_FLAGS_INIT "-fno-exceptions -fno-unwind-tables -ffunction-sections -fdata-sections -Wall -Wextra")
-set(CMAKE_C_FLAGS_INIT   "-std=c99 ${_C_FAMILY_FLAGS_INIT}")
+set(_C_FAMILY_FLAGS_INIT "-fno-exceptions -fno-unwind-tables -fmessage-length=0 -fsigned-char -fsigned-bitfields -ffunction-sections -fdata-sections -Wall -Wextra")
+set(CMAKE_C_FLAGS_INIT   "-std=gnu11 ${_C_FAMILY_FLAGS_INIT} -Wmissing-prototypes -Wstrict-prototypes -Wbad-function-cast")
 set(CMAKE_ASM_FLAGS_INIT "-fno-exceptions -fno-unwind-tables -x assembler-with-cpp")
-set(CMAKE_CXX_FLAGS_INIT "${_C_FAMILY_FLAGS_INIT} -fno-rtti -fno-threadsafe-statics")
+set(CMAKE_CXX_FLAGS_INIT "-std=gnu++11 ${_C_FAMILY_FLAGS_INIT} -fabi-version=0 -fno-rtti -fno-threadsafe-statics -Wabi -Wctor-dtor-privacy -Wnoexcept -Wnon-virtual-dtor -Wstrict-null-sentinel -Wsign-promo")
 set(CMAKE_MODULE_LINKER_FLAGS_INIT
     "-fno-exceptions -fno-unwind-tables -Wl,--gc-sections -Wl,--sort-common -Wl,--sort-section=alignment"
 )
-set(CMAKE_EXE_LINKER_FLAGS_INIT "${CMAKE_MODULE_LINKER_FLAGS_INIT} -Wl,-wrap,main") 
+set(CMAKE_EXE_LINKER_FLAGS_INIT "${CMAKE_MODULE_LINKER_FLAGS_INIT}") 
 
 # Set the compiler to ARM-GCC
 include(CMakeForceCompiler)
